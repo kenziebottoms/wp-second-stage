@@ -7,13 +7,12 @@ get_header();
 ?>
     <section id="primary" class="content-area play">
         <main id="main" class="site-main" role="main">
-            <div class="container">
-                <?php
-                while ( have_posts() ) : the_post();
-                    get_template_part( 'template-parts/content', 'notitle' );
-                endwhile; // End of the loop.
-                ?>
-            </div>
+            <?php while ( have_posts() ) : the_post(); ?>
+                <?php the_post_thumbnail(); ?>
+                <div class="container">
+                    <?php get_template_part( 'template-parts/content', 'notitle' ); ?>
+                </div>
+            <?php endwhile; ?>
         </main><!-- #main -->
     </section><!-- #primary -->
 

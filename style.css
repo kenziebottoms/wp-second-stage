@@ -212,10 +212,11 @@ th {
 --------------------------------------------------------------*/
 h1, h2, h3, h4, h5, h6 {
   clear: both;
-  color: #24292e;
-  font-weight: 600;
+  color: rgba(255, 255, 255, 0.25);
+  font-weight: 500;
   margin-top: 24px;
   margin-bottom: 15px;
+  text-transform: lowercase;
 }
 h1 {
   font-size: 32px;
@@ -227,7 +228,7 @@ h2 {
   line-height: 1.25;
 }
 h3 {
-  font-size: 18px;
+  font-size: 2.5rem;
   line-height: 25px;
 }
 h4 {
@@ -257,7 +258,11 @@ h3.widget-title {
 # Elements
 --------------------------------------------------------------*/
 body {
-  background: #fff;
+  background: #333;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
   /* Fallback for when there is no custom background color defined. */
 }
 
@@ -286,7 +291,7 @@ table {
 --------------------------------------------------------------*/
 header#masthead {
   margin-bottom: 0;
-  background-color: #563d7c ;
+  background-color: rgba(0, 0, 0, 0.267);
   box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05), inset 0 -1px 0 rgba(0,0,0,.1);
   padding: .74rem 1rem;
 }
@@ -661,9 +666,18 @@ a img.aligncenter {
 .page-template-play-with-poster #content.site-content {
   padding: 0;
 }
+.page-template-play-with-poster #content.site-content #main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+  @media screen and (max-width: 1024px) {
+    .page-template-play-with-poster #content.site-content #main {
+      flex-direction: column;
+    }
+  }
 .page-template-play-with-poster #content.site-content #main > .container {
-  padding-bottom: 3.75rem;
-  padding-top: 4.125rem;
+  padding: 1rem;
 }
 
 .sticky .entry-title::before {
@@ -909,7 +923,7 @@ object {
 --------------------------------------------------------------*/
 footer#colophon {
   color: #99979c;
-  background-color: #f7f7f7;
+  background-color: rgba(0, 0, 0, 0.13);
   font-size: 85%;
 }
 
