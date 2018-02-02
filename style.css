@@ -658,6 +658,13 @@ a img.aligncenter {
   padding-bottom: 3.75rem;
   padding-top: 4.125rem;
 }
+.page-template-play-with-poster #content.site-content {
+  padding: 0;
+}
+.page-template-play-with-poster #content.site-content #main > .container {
+  padding-bottom: 3.75rem;
+  padding-top: 4.125rem;
+}
 
 .sticky .entry-title::before {
   content: '\f08d';
