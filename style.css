@@ -224,12 +224,12 @@ h1 {
 }
 h2 {
   font-size: 24px;
-  padding-bottom: 0.3em;
+  padding-bottom: .5rem;
   line-height: 1.25;
 }
 h3 {
-  font-size: 2.5rem;
-  line-height: 25px;
+  font-size: 2rem;
+  margin: 2.5rem 0 1rem -1.5rem;
 }
 h4 {
   font-size: 16px;
@@ -244,11 +244,13 @@ p {
   margin-bottom: 1.5em;
 }
 h1.entry-title {
-  font-size: 21px;
-  border-bottom: 1px solid #eaecef;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 h2.entry-title {
-  border-bottom: 1px solid #eaecef;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.493);
+  margin: 0;
 }
 h3.widget-title {
   font-size: 1.2rem;
@@ -293,16 +295,15 @@ header#masthead {
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.267);
   box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05), inset 0 -1px 0 rgba(0,0,0,.1);
-  padding: .74rem 1rem;
+  padding: 1.25rem 0;
 }
 
 .navbar-brand > a {
-  color: rgba(0, 0, 0, 0.9);
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   outline: medium none;
   text-decoration: none;
-  color: #fff;
-  font-weight: 700;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 400;
 }
 
 .navbar-brand > a:visited, .navbar-brand > a:hover {
@@ -369,7 +370,7 @@ a.page-scroller {
 }
 
 #masthead .navbar-nav > li > a {
-  color: #cdbfe3;
+  color: #b8a6d6;
   padding: 0.5rem;
   font-weight: 500;
   font-size: 14px;
@@ -925,6 +926,7 @@ footer#colophon {
   color: #99979c;
   background-color: rgba(0, 0, 0, 0.13);
   font-size: 85%;
+  padding: 2rem 0;
 }
 
 .copyright {
@@ -935,6 +937,10 @@ footer#colophon {
 
 .copyright a, footer#colophon a {
   color: inherit;
+}
+
+.site-info {
+  text-align: center;
 }
 
 @media screen and (max-width: 767px) {
