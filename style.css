@@ -207,6 +207,17 @@ th {
   padding: 0;
 }
 
+blockquote {
+  font-family: "Nanum Myeongjo", serif;
+  font-size: 1.5em;
+  margin: .5em;
+  padding: .5em;
+  border-bottom: 1px solid #666;
+}
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
@@ -229,15 +240,17 @@ h2 {
 }
 h3 {
   font-size: 2rem;
-  margin: 2.5rem 0 1rem -1.5rem;
+  margin: 2.5rem 0 1rem 0rem;
 }
 h4 {
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 1.5rem;
+  font-weight: 100;
+  text-transform: lowercase;
+  margin-top: 2rem;
+  color: rgba(255, 255, 255, 0.75);
 }
 h5 {
-  font-size: 14px;
-  line-height: 17.5px;
+  font-size: 1.3rem;
 }
 
 p {
@@ -247,13 +260,19 @@ h1.entry-title {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 h2.entry-title {
-  font-size: 2.5rem;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.493);
-  margin: 0;
+  font-size: 2.3rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.25);
 }
 h3.widget-title {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  margin-bottom: .75rem;
+}
+section.widget {
+  margin-bottom: 3rem;
+}
+aside#secondary {
+  padding-top: 1rem;
 }
 
 /*--------------------------------------------------------------
@@ -264,7 +283,7 @@ body {
   color: rgba(255, 255, 255, 0.75);
   font-family: "Roboto", sans-serif;
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 400;
   /* Fallback for when there is no custom background color defined. */
 }
 
@@ -285,6 +304,14 @@ table {
   width: 100%;
 }
 
+table.table tr td {
+  vertical-align: middle;
+  border-bottom: solid 1px #666;
+  border-top: solid 1px #666;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
@@ -293,9 +320,8 @@ table {
 --------------------------------------------------------------*/
 header#masthead {
   margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.267);
-  box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05), inset 0 -1px 0 rgba(0,0,0,.1);
-  padding: 1.25rem 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: .75rem 0;
 }
 
 .navbar-brand > a {
@@ -303,7 +329,11 @@ header#masthead {
   outline: medium none;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.75);
-  font-weight: 400;
+  font-weight: 300;
+}
+.navbar-brand img {
+  width: 4rem;
+  margin-right: 1rem;
 }
 
 .navbar-brand > a:visited, .navbar-brand > a:hover {
@@ -370,15 +400,19 @@ a.page-scroller {
 }
 
 #masthead .navbar-nav > li > a {
-  color: #b8a6d6;
+  color: rgba(255, 255, 255, 0.527);
   padding: 0.5rem;
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: 300;
+  font-size: 1.2rem;
 }
 
-#masthead .navbar-nav > li > a:hover, #masthead .navbar-nav > li.current_page_item > a {
-  color: #fff;
-  font-weight: 600;
+#masthead .navbar-nav > li > a:hover {
+  color: rgba(255, 255, 255, 0.75);  
+}
+
+#masthead .navbar-nav > li.current_page_item > a {
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 400;
   /*background: #f9f9f9;*/
 }
 
@@ -643,6 +677,17 @@ a img.aligncenter {
 .widget_search .search-form input[type="submit"] {
   display: none;
 }
+.widget_search .search-form input[type="search"] {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.452);
+  border-radius: 0;
+  border-width: 0 0 1px 0;
+  padding-left: 0;
+  color: #ccc;
+}
+.widget_search .search-form input[type="search"]::placeholder {
+  color: #666;
+}
 
 .nav > li > a:focus,
 .nav > li > a:hover {
@@ -661,8 +706,7 @@ a img.aligncenter {
 ## Posts and pages
 --------------------------------------------------------------*/
 #content.site-content {
-  padding-bottom: 3.75rem;
-  padding-top: 4.125rem;
+  padding: 1rem 0;
 }
 .page-template-play-with-poster #content.site-content {
   padding: 0;
