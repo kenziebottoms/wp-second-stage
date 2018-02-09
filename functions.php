@@ -230,7 +230,7 @@ function create_post_type() {
                 'singular_name' => __( 'Show' )
             ),
             'public' => true,
-            'has_archive' => false,
+            'has_archive' => true,
             'menu_icon' => 'dashicons-tickets-alt',
         )
     );
