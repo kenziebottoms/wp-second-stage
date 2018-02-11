@@ -21,7 +21,9 @@ get_header();
                 </div>
                 <div class="col col-sm-12 col-md-8">
                     <h3 class="show-title"><?php the_title(); ?></h3>
-                    <h4 class="playwright">by <?php the_field("playwright"); ?></h4>
+                    <?php if (get_field("playwright")) { ?>
+                        <h4 class="playwright">by <?php the_field("playwright"); ?></h4>
+                    <?php } ?>
                     <?php get_template_part( 'template-parts/content', 'notitle' ); ?>
                     <div class="row">
                         <?php if (get_field("dates") && get_field("times")) { ?>
@@ -96,6 +98,12 @@ get_header();
                         </div>
                     </div>
                 <?php endif; ?>
+                <?php if (get_field("gallery")) { ?>
+                    <div class="col col-12">
+                        <h3>Gallery</h3>
+                        <?php the_field("gallery"); ?>
+                    </div>
+                <?php } ?>
             <?php endwhile; ?>
         </main><!-- #main -->
     </section><!-- #primary -->
