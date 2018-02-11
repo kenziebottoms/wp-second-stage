@@ -724,11 +724,6 @@ h4.playwright {
   display: flex;
   justify-content: space-between;
 }
-  @media screen and (max-width: 1024px) {
-    .single-show #content.site-content #main {
-      flex-direction: column;
-    }
-  }
 .single-show #content.site-content #main > .container {
   padding: 1rem;
 }
@@ -1077,11 +1072,6 @@ footer#colophon {
 }
 .acf-map img {
   max-width: inherit !important;
-}
-#cast .grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1rem;
 }
 #cast-verbose .grid {
   display: grid;
