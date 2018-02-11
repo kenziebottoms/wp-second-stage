@@ -111,24 +111,6 @@ function wp_bootstrap_starter_widgets_init() {
         'before_title'  => '<h3 class="widget-title">',
         'after_title'   => '</h3>',
     ) );
-    register_sidebar( array(
-        'name'          => esc_html__( 'Footer 2', 'wp-bootstrap-starter' ),
-        'id'            => 'footer-2',
-        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
-        'before_widget' => '<section id="%1$s" class="widget %2$s">',
-        'after_widget'  => '</section>',
-        'before_title'  => '<h3 class="widget-title">',
-        'after_title'   => '</h3>',
-    ) );
-    register_sidebar( array(
-        'name'          => esc_html__( 'Footer 3', 'wp-bootstrap-starter' ),
-        'id'            => 'footer-3',
-        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
-        'before_widget' => '<section id="%1$s" class="widget %2$s">',
-        'after_widget'  => '</section>',
-        'before_title'  => '<h3 class="widget-title">',
-        'after_title'   => '</h3>',
-    ) );
 }
 add_action( 'widgets_init', 'wp_bootstrap_starter_widgets_init' );
 
@@ -230,12 +212,81 @@ function create_post_type() {
                 'singular_name' => __( 'Show' )
             ),
             'public' => true,
-            'has_archive' => true,
+            'supports' => array( 'title', 'editor', 'thumbnail' ), 'has_archive' => true,
             'menu_icon' => 'dashicons-tickets-alt',
+        )
+    );
+    register_post_type( 'cast',
+        array(
+            'labels' => array(
+                'name' => __( 'Cast' ),
+                'singular_name' => __( 'Cast Member' )
+            ),
+            'public' => true,
+            'supports' => array( 'title', 'editor', 'thumbnail' ), 'has_archive' => true,
+            'menu_icon' => 'dashicons-groups',
         )
     );
 }
 add_action( 'init', 'create_post_type' );
+
+// social media links page
+
+// social media links settings page
+
+function social_links_page() { ?>
+	<div class="wrap">
+		<h1>Social Links</h1>
+		<form method="post" action="options.php">
+			<?php settings_fields("section");
+			do_settings_sections("social-links");      
+			submit_button(); ?>
+		</form>
+	</div>
+<?php }
+
+function display_twitter_link() { ?>
+	<input type="text" name="twitter_url" id="twitter_url" value="<?php echo get_option('twitter_url'); ?>" />
+<?php }
+function display_facebook_link() { ?>
+	<input type="text" name="facebook_url" id="facebook_url" value="<?php echo get_option('facebook_url'); ?>" />
+<?php }
+function display_instagram_link() { ?>
+	<input type="text" name="instagram_url" id="instagram_url" value="<?php echo get_option('instagram_url'); ?>" />
+<?php }
+function display_gplus_link() { ?>
+	<input type="text" name="gplus_url" id="gplus_url" value="<?php echo get_option('gplus_url'); ?>" />
+<?php }
+function display_email_link() { ?>
+	<input placeholder="jane@doe.com" type="text" name="email" id="email" value="<?php echo get_option('email'); ?>" />
+<?php }
+function display_phone_no() { ?>
+	<input placeholder="123.456.7890" type="text" name="phone" id="phone" value="<?php echo get_option('phone'); ?>" />
+<?php }
+
+function display_social_link_fields() {
+	add_settings_section("social-links", "", null, "social-links");
+	
+	add_settings_field("twitter_url", "Twitter Profile Url", "display_twitter_link", "social-links", "social-links");
+    add_settings_field("facebook_url", "Facebook Profile Url", "display_facebook_link", "social-links", "social-links");
+	add_settings_field("instagram_url", "Instagram Profile Url", "display_instagram_link", "social-links", "social-links");
+	add_settings_field("gplus_url", "Google+ Profile Url", "display_gplus_link", "social-links", "social-links");
+	add_settings_field("email", "Email Address", "display_email_link", "social-links", "social-links");
+	add_settings_field("phone", "Phone Number", "display_phone_no", "social-links", "social-links");
+
+    register_setting("section", "twitter_url");
+    register_setting("section", "facebook_url");
+    register_setting("section", "instagram_url");
+    register_setting("section", "gplus_url");
+    register_setting("section", "email");
+    register_setting("section", "phone");
+}
+add_action("admin_init", "display_social_link_fields");
+
+function add_social_links_page() {
+	add_menu_page("Social Links", "Social Links", "manage_options", "social-links", "social_links_page", null, 99);
+}
+add_action("admin_menu", "add_social_links_page");
 
 /**
  * Implement the Custom Header feature.

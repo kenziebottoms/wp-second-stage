@@ -77,11 +77,14 @@ template {
 
 a {
   background-color: transparent;
+  color: #b19dc1;
 }
 
 a:active,
 a:hover {
   outline: 0;
+  color: #b19dc1;
+  text-decoration: underline;
 }
 
 dfn {
@@ -128,6 +131,7 @@ figure {
 hr {
   box-sizing: content-box;
   height: 0;
+  clear: both;
 }
 
 button {
@@ -711,15 +715,16 @@ a img.aligncenter {
 .single-show #content.site-content {
   padding: 0;
 }
+.type-show > .entry-content {
+  margin: 0;
+}
+h4.playwright {
+  margin-top: -.6rem;
+}
 .single-show #content.site-content #main {
   display: flex;
   justify-content: space-between;
 }
-  @media screen and (max-width: 1024px) {
-    .single-show #content.site-content #main {
-      flex-direction: column;
-    }
-  }
 .single-show #content.site-content #main > .container {
   padding: 1rem;
 }
@@ -966,20 +971,16 @@ object {
 # Footer
 --------------------------------------------------------------*/
 footer#colophon {
-  color: #99979c;
-  background-color: rgba(0, 0, 0, 0.13);
-  font-size: 85%;
-  padding: 2rem 0;
+  color: #999;
+  background-color: #2b2b2b;
+  padding: 1.5rem 0;
+  font-weight: 100;
 }
 
 .copyright {
   font-size: 0.875rem;
   margin-bottom: 0;
   text-align: center;
-}
-
-.copyright a, footer#colophon a {
-  color: inherit;
 }
 
 .site-info {
@@ -991,6 +992,34 @@ footer#colophon {
     padding-bottom: 0.938rem;
     padding-top: 0.938rem;
   }
+}
+
+#footer-widget {
+  border: 0;
+  text-align: center;
+  background: #393939;
+}
+#footer-widget section {
+  margin-bottom: 0;
+}
+#footer-widget .textwidget p {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 100;
+  line-height: 1;
+}
+#footer-widget .textwidget ul {
+  list-style-type: none;
+}
+#footer-widget .textwidget ul li {
+  display: inline-block;
+  padding: 0 .6rem 0 .4rem;
+}
+#footer-widget .textwidget ul li:not(:last-child) {
+  border-right: 1px solid rgba(255, 255, 255, 0.322);
+}
+#footer-widget h3 {
+  margin: 1rem 0;
 }
 /*--------------------------------------------------------------
 # Media Query
@@ -1044,4 +1073,53 @@ footer#colophon {
 }
 .acf-map img {
   max-width: inherit !important;
+}
+#cast-verbose .grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 3rem;
+}
+@media screen and (min-width: 992px) {
+  #cast-verbose .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+#cast-verbose {
+  line-height: 1.5;
+}
+#cast-verbose .grid img {
+  max-height: 19rem;
+  float: right;
+  margin: 2rem 0 0 2rem;
+}
+#cast-verbose .grid .block * {
+  clear: none;
+}
+#cast-verbose h4 {
+  margin-top: 0;
+  font-size: 1.8rem;
+  color: #999;
+}
+#cast-verbose h5 {
+  margin-top: 0;
+}
+#social-links {
+  display: flex;
+  max-width: 50rem;
+  margin: .5rem auto 1rem auto;
+  justify-content: center;
+}
+#social-links a {
+  font-size: 2rem;
+  background: #b19dc1;
+  color:#2b2b2b;
+  margin: 0 .5rem;
+  padding: .1rem 0;
+  text-align: center;
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+}
+#social-links a:hover {
+  background: #ccc;
 }
